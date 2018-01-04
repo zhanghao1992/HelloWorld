@@ -1,14 +1,18 @@
 // TypeScript file
-class BitmapAnination extends egret.DisplayObjectContainer {
+class BitmapProp extends egret.DisplayObjectContainer {
     private logo: egret.Bitmap;
 
-    /*构造函数*/
+    /**
+     * 构造函数
+     * */
     public constructor() {
         super()
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.startGame, this);
     }
 
-    /*游戏启动后执行函数*/
+    /**
+     * 游戏启动后执行函数
+     * */
     public startGame(): void {
         this.loadResource();
         this.drawBg();
@@ -30,22 +34,19 @@ class BitmapAnination extends egret.DisplayObjectContainer {
         RES.loadGroup('bitmap')
     }
 
-    /*资源加载回调函数*/
+    /**
+     * 资源加载回调函数
+     * */
     private onResourceLoadComplete(evt: RES.ResourceEvent): void {
         this.logo = new egret.Bitmap();// 变量实例化
         this.logo.texture = RES.getRes('egret_icon_png');// 获取资源
+        this.logo.x = 300;
+        this.logo.y = 320;
+        // this.logo.width = this.logo.height = 100;// 宽高
+        this.logo.scaleX = this.logo.scaleY = 0.6;// 缩放
+        this.logo.rotation = 45;// 旋转
+        this.logo.anchorOffsetX = 0.5;
+        this.logo.anchorOffsetY = 0.5;
         this.addChild(this.logo);//添加到显示列表中
-        this.bitmapAnimation();
-    }
-
-    private bitmapAnimation(): void {
-        let tw = egret.Tween.get(this.logo);
-        const logoWidth = this.logo.texture._bitmapWidth;
-        const logoHeight = this.logo.texture._bitmapHeight;
-        tw.to({x: this.stage.stageWidth - logoWidth, y: 0}, 5000);
-        tw.to({x: this.stage.stageWidth - logoWidth, y: this.stage.stageHeight - logoHeight}, 5000);
-        tw.to({x: 0, y: this.stage.stageHeight - logoHeight}, 5000);
-        tw.to({x: 0, y: 0}, 5000);
-        tw.call(this.bitmapAnimation, this);
     }
 }
