@@ -8,6 +8,7 @@
 		"promise/bin/promise.js"
 	],
 	"game": [
+		"bin-debug/Bitmap.js",
 		"bin-debug/HelloWorld.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js"

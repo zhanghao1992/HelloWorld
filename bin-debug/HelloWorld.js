@@ -14,13 +14,19 @@ var __extends = (this && this.__extends) || (function () {
 // TypeScript file
 var HelloWorld = (function (_super) {
     __extends(HelloWorld, _super);
+    /**
+     * 构造函数
+     * */
     function HelloWorld() {
         var _this = _super.call(this) || this;
         _this.addEventListener(egret.Event.ADDED_TO_STAGE, _this.startGame, _this);
         return _this;
     }
+    /**
+     * 游戏启动后执行函数
+     * */
     HelloWorld.prototype.startGame = function () {
-        alert('hello 222!');
+        alert('hello world!');
     };
     return HelloWorld;
 }(egret.DisplayObjectContainer));
