@@ -42,6 +42,9 @@ class BitmapProp extends egret.DisplayObjectContainer {
         this.logo.texture = RES.getRes('egret_icon_png');// 获取资源
         this.logo.x = 300;
         this.logo.y = 320;
+
+
+
         // this.logo.width = this.logo.height = 100;// 宽高
         this.logo.scaleX = this.logo.scaleY = 0.6;// 缩放
         this.logo.rotation = 45;// 旋转
